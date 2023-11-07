@@ -4,7 +4,7 @@
   "description": "DEVCAMPER backend API",
   "main": "server.js",
   "scripts": {
-    "start": " node server.js",
+    "start": "cross-env NODE_ENV=production node server.js",
     "dev": "nodemon server.js"
   },
   "author": "Moein Samani Nejad",
@@ -14,6 +14,7 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "nodemon": "^3.0.1"
   }
 }

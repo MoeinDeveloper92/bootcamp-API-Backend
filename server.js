@@ -8,6 +8,10 @@ dotenv.config({
 })
 
 const app = expres()
+
+//Routes file
+app.use("/api/v1/bootcamps", require("./routes/bootCamp"))
+
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
     console.log(`The server is running in ${process.env.NODE_ENV} mode, on the port ${PORT}`)
