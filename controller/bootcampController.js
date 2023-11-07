@@ -1,42 +1,52 @@
-const getAllBootcamps = (req, res) => {
+//@desc     Get all the bootcamps
+//@route    GET /api/v1/bootcamps
+//@access   Public => you dont need to have token to see bootcamps  
+exports.getBootcamps = (req, res, next) => {
     res.status(200).json({
         success: true,
-        msg: "Display all the bootcamps"
+        msg: "Display All the bootcamps",
     })
 }
 
-const getBootcamp = (req, res) => {
+
+//@desc     Get a single bootcamp
+//@route    GET /api/v1/bootcamp/:id
+//@access   Publuc
+exports.getBootcamp = (req, res, next) => {
     res.status(200).json({
         success: true,
         msg: `Display Bootcamp ${req.params.id}`
     })
 }
 
-const createBootcamp = (req, res, next) => {
-    res.status(201).json({
+//@desc     Create New Bootcamp
+//@route    POST /api/v1/bootcamp/
+//@access   Private=>you have tos end a token
+exports.createBootcamp = (req, res, next) => {
+    res.status(200).json({
         success: true,
-        msg: `Create New Bootcamp`
+        msg: `Creaet New Bootcamp`
     })
 }
 
-const updateBootcamp = (req, res, next) => {
+//@desc     Update Bootcamp
+//@route    PUT /api/v1/bootcamp/:id
+//@access   Private
+exports.updateBootcamp = (req, res, next) => {
     res.status(200).json({
         success: true,
         msg: `Update Bootcamp ${req.params.id}`
     })
 }
 
-const deleteBootcamp = (req, res, next) => {
-    res.status(200).json({
-        sucess: true,
-        msg: `Delete Bootcamp ${req.params.id}`
-    })
-}
 
-module.exports = {
-    getAllBootcamps,
-    getBootcamp,
-    updateBootcamp,
-    deleteBootcamp,
-    createBootcamp
+
+//@desc     Delete a single bootcamp
+//@route    DELETE /api/v1/bootcamp/:id
+//@access   Private
+exports.deleteBootcamp = (req, res, next) => {
+    res.status(200).json({
+        success: true,
+        msg: `delete Bootcamp ${req.params.id}`
+    })
 }

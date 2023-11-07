@@ -1,6 +1,6 @@
 const expres = require("express")
 const dotenv = require("dotenv")
-
+const morgan = require("morgan")
 //Load Env files
 //this loads env variable from a .env file o process.env file, which we can work with them.
 dotenv.config({
@@ -9,7 +9,12 @@ dotenv.config({
 
 const app = expres()
 
-//Routes file
+//Dev login middleware
+if (process.env.NODE_ENV === "development") {
+    app.use(morgan('dev'))
+}
+
+//Routes file/ and below we mount the routers
 app.use("/api/v1/bootcamps", require("./routes/bootCamp"))
 
 const PORT = process.env.PORT || 5000
