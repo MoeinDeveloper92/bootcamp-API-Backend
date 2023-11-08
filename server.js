@@ -3,6 +3,7 @@ const dotenv = require("dotenv")
 const morgan = require("morgan")
 const colors = require("colors")
 const connectDB = require("./config/db")
+const errorHandler = require("./middleware/error")
 //Load Env files
 //this loads env variable from a .env file o process.env file, which we can work with them.
 dotenv.config({
@@ -23,6 +24,8 @@ app.use(expres.json())
 app.use(expres.urlencoded({ extended: false }))
 //Routes file/ and below we mount the routers
 app.use("/api/v1/bootcamps", require("./routes/bootCamp"))
+app.use(errorHandler)
+
 
 const PORT = process.env.PORT || 5000
 const server = app.listen(PORT, () => {
