@@ -17,6 +17,10 @@ if (process.env.NODE_ENV === "development") {
     app.use(morgan('dev'))
 }
 
+
+//Body Parse
+app.use(expres.json())
+app.use(expres.urlencoded({ extended: false }))
 //Routes file/ and below we mount the routers
 app.use("/api/v1/bootcamps", require("./routes/bootCamp"))
 
