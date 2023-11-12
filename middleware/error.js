@@ -23,6 +23,7 @@ const errorHandler = (err, req, res, next) => {
     }
 
     //Mongoose Validation Error
+    //wehn you put no name or no emaiul or no required fields
     if (err.name === "ValidationError") {
         const message = Object.values(err.errors).map(val => val.message)
         error = new ErrorResponse(message, 400)
